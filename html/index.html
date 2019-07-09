@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <title>大厅</title>
   <style>
-    body{
+    html,body{
       padding: 0;
       margin: 0;
       background-color: #370850;
@@ -104,15 +104,15 @@
     // 创建房间
     function createHome(){
       var listObj = document.querySelector(".dqf_list");
-      listObj.innerHTML += `<div class="dqf_home">
+      listObj.innerHTML += `<div class="dqf_home" onclick="openHome()">
                             <div class="dqf_home_num"><span>房间号：</span> 1</div>
                             <div class="dqf_mastar"><span>房主：</span>閻魔あい</div>
                            </div>`
     }
     function openHome(){
       api.openWin({
-          name: 'twelve',
-          url: './twelve.html',
+          name: 'home',
+          url: './home.html',
           pageParam: {
               name: 'test'
           }

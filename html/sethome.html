@@ -26,7 +26,6 @@
 
         header {
             position: relative;
-
             padding-top: 50px;
         }
 
@@ -84,42 +83,90 @@
             font-size: 20px;
             letter-spacing: -5px;
         }
+
         .content {
-
-          padding: 15px;
+            padding: 15px;
         }
+
         .cont {
-          background-color: #2e0042;
-          border-radius: 10px;
-          padding: 12px 10px;
+            background-color: #2e0042;
+            border-radius: 10px;
+            padding: 12px 10px;
         }
-        .house-set {
 
-          background-color: #180024;
-          z-index: 9999;
-          /*padding:5px  15px;*/
-          color: #fff;
-          text-align: center;
-          height: 2rem;
-          line-height: 2rem;
-          margin-bottom: 5px;
-          border-radius: 10px;
+        .house-set {
+            background-color: #180024;
+            z-index: 9999;
+            /*padding:5px  15px;*/
+            color: #fff;
+            text-align: center;
+            height: 2rem;
+            line-height: 2rem;
+            margin-bottom: 5px;
+            border-radius: 10px;
         }
-        .jiu, .shier {
-          padding:  0 20px;
+
+        .jiu,
+        .shier {
+            padding: 0 20px;
+            height: 13rem;
         }
+
         .list1 {
-          background-color: #180024;
-          width: 100%;
-          margin-top: 10px;
-          border-radius: 10px;
-          height: 100%;
+            background-color: #180024;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+            height: 55px;
         }
+
         .list1-title {
-          color: #ffbc55;
+            color: #ffbc55;
+            line-height: 55px;
         }
+
         .aui-tab {
-          background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .btn {
+            padding: 0 40px;
+            padding-top: 30px;
+        }
+
+        .queding {
+            color: #fff;
+            background-color: #ffbc55;
+            border-radius: 10px!important;
+        }
+
+        .list2 {
+            background-color: #180024;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+            height: 55px;
+        }
+
+        .list2-title {
+            color: #778899;
+            line-height: 55px;
+        }
+
+        .border {
+            border: 1px solid #ffbc55;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .shier {
+            display: none;
         }
     </style>
 </head>
@@ -149,28 +196,50 @@
     <!-- 选择模式 -->
 
     <div class="content">
-      <div class="cont">
-        <!-- 房间模式  -->
-        <div class="house-set">
-          房间模式： 好友推送已开启，免密跟房
+        <div class="cont">
+            <!-- 房间模式  -->
+            <div class="house-set">
+                房间模式： 好友推送已开启，免密跟房
+            </div>
+
+
+            <!-- 九人局的样式 -->
+            <div class="jiu" id="jiu">
+
+                <div class="list1 border">
+                    <div class="list1-title">
+                        -9人-
+                    </div>
+                </div>
+            </div>
+
+            <!-- 十二人局的样式 -->
+            <div class="shier" id="shier">
+                <div class="list1 border">
+                    <div class="list1-title">
+                        -预女猎守-
+                    </div>
+                </div>
+                <div class="list2">
+                    <div class="list2-title">
+                        -预女猎白-
+                    </div>
+                </div>
+                <div class="list2" style="">
+                    <div class="list2-title">
+                        -熊骑白狼王-
+                    </div>
+                </div>
+                <div class="list2" style="">
+                    <div class="list2-title">
+                        -预骑白狼王-
+                    </div>
+                </div>
+            </div>
+            <div class="btn">
+                <div class="aui-btn aui-btn-block  queding" tapmode onclick="queding()">确定</div>
+            </div>
         </div>
-
-
-        <!-- 九人局的样式 -->
-        <div class="jiu">
-        <div class="list1">
-          <div class="list1-title">
-            -预女猎守-
-          </div>
-
-        </div>
-
-        </div>
-
-        <!-- 十二人局的样式 -->
-        <div class="shier"></div>
-
-      </div>
 
 
     </div>
@@ -187,9 +256,9 @@
         // api.animation({
         //     name: 'sethome',
         //     delay: 0,
-        //     duration: 1000,
+        //     duration: 2000,
         //     curve: 'ease_in',
-        //     repeatCount: 2,
+        //     repeatCount: 0,
         //     autoreverse: false,
         //     alpha: 0,
         //     translation: {
@@ -209,22 +278,36 @@
         //         z: 1
         //     }
         // }, function(ret, err) {
-        //     alert('动画结束');
+        //     console.log('动画结束');
         // });
         var tab = new auiTab({
             element: document.getElementById("tab2"),
             index: 2,
             repeatClick: false
         }, function(ret) {
+            var shier = document.getElementById("shier");
+            var jiu = document.getElementById("jiu");
+            // console.log(shier)
             if (ret.index == 2) {
-                console.log(2222);
+                console.log(9999);
+                shier.style.display = 'none';
+                jiu.style.display = 'block';
             } else {
-                console.log(111);
+                shier.style.display = 'block';
+                jiu.style.display = 'none';
+                console.log(12121212);
 
             }
 
         });
     };
+
+    function queding() {
+        api.closeFrame({
+            name: 'sethome'
+        });
+
+    }
 
     function fnCloseFrame() {
         api.closeFrame({

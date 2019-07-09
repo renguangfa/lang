@@ -15,8 +15,6 @@
             background-color: #28003e;
         }
 
-
-
         header {
             /*height: 60px;*/
             background-color: #28003e;
@@ -253,8 +251,8 @@
         .seat {
             position: relative;
             z-index: 999;
-            padding-top: 30%;
-            padding-bottom: 20%;
+            padding-top: 20%;
+            padding-bottom: 30%;
         }
 
         .aui-row {
@@ -327,8 +325,9 @@
         .role {
             padding: 0 15px;
         }
+
         .role img {
-          height: 55px;
+            height: 55px;
         }
     </style>
 </head>
@@ -499,21 +498,22 @@
         $api.fixStatusBar(header);
 
     };
-    function onSethome(){
-    api.openFrame({
-        name: 'sethome',
-        url: './sethome.html',
-        rect: {
-            x: 0,
-            y: 0,
-            w: 'auto',
-            h: 'auto'
-        },
-          bgColor: 'rgba(0,0,0,0.4)',
-        pageParam: {
-            name: 'test'
-        }
-    });
+
+    function onSethome() {
+        api.openFrame({
+            name: 'sethome',
+            url: './sethome.html',
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: 'auto'
+            },
+            bgColor: 'rgba(0,0,0,0.4)',
+            pageParam: {
+                name: 'test'
+            }
+        });
 
 
 
