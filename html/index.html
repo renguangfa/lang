@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>大厅</title>
+  <style>
+    body{
+      padding: 0;
+      margin: 0;
+      background-color: #370850;
+    }
+    .dqf_seat{
+      background-color: #C186CA;
+      float: left;
+      border-radius: 50%;
+      width: 53px;
+      height: 53px;
+      text-align: center;
+      position: relative;
+      margin-right: 10px;
+    }
+    .dqf_seat .icon{
+      font-size: 50px;
+      position: absolute;
+      top: 0px;
+      left: 10px;
+      color: #5D357D;
+    }
+    .dqf_content{
+      box-sizing: border-box;
+      padding: 20px 10px;
+    }
+    .dqf_content .dqf_header{
+      background-color: #4F2472;
+      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .dqf_content .dqf_header .dqf_name_box{
+      color: #fff;
+      font-size: 14px;
+    }
+    .dqf_name{
+      display: inline-block;
+      padding: 15px 0;
+    }
+    .dqf_create_btn{
+      background-color: #ffbc55;
+      float: right;
+      padding: 8px 5px;
+      margin-top: 7px;
+      border-radius: 5px;
+    }
+    .dqf_content .dqf_list{
+      box-sizing: border-box;
+      padding: 10px;
+      background-color: #4F2472;
+      min-height: 400px;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+    .dqf_content .dqf_list .dqf_home{
+      background-color: #C186CA;
+      color: #ffbc55;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .dqf_content .dqf_list .dqf_home span{
+      color: #5D357D;
+    }
+  </style>
+</head>
+<body>
+  <div class="dqf_content">
+    <div class="dqf_header">
+      <div class="dqf_seat">
+        <i class="icon iconfont icon-zhuazi"></i>
+      </div>
+      <div class="dqf_name_box">
+        <div class="dqf_name">閻魔あい
+        </div>
+        <div class="dqf_create_btn" onclick="createHome()">创建房间</div>
+      </div>
+    </div>
+    <div class="dqf_list">
+      <div class="dqf_home" onclick="openHome()">
+          <div class="dqf_mastar"><span>房主：</span>閻魔あい</div>
+        <div class="dqf_home_num"><span>人数：</span>11</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var boxObj = document.querySelectorAll(".dqf_num");
+    for(var i=0;i<boxObj.length;i++){
+      let objHeight = boxObj[i].offsetWidth;
+      boxObj[i].style.height = objHeight+"px";
+      boxObj[i].style.lineHeight = objHeight+"px";
+    }
+
+    // 创建房间
+    function createHome(){
+      var listObj = document.querySelector(".dqf_list");
+      listObj.innerHTML += `<div class="dqf_home">
+                            <div class="dqf_home_num"><span>房间号：</span> 1</div>
+                            <div class="dqf_mastar"><span>房主：</span>閻魔あい</div>
+                           </div>`
+    }
+    function openHome(){
+      api.openWin({
+          name: 'twelve',
+          url: './twelve.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
+
+    }
+  </script>
+</body>
+</html>

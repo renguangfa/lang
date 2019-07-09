@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../font/zhi.css" />
+    <style>
+        html,
+        body {
+            background-color: #28003e;
+        }
+
+
+
+        header {
+            /*height: 60px;*/
+            background-color: #28003e;
+            padding: 0 10px;
+            display: flex;
+        }
+
+        .fanhui {
+            width: 30px;
+            height: 30px;
+            background-color: #ffbc55;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-left: 10px;
+        }
+
+        .fanhui-icon {
+            color: #604215;
+        }
+
+        .fangjian-number {
+            background-color: #220332;
+            /*height: 30px;
+          line-height: 30px;*/
+            border-radius: 20px;
+            padding: 3px 5px;
+            display: flex;
+            line-height: 30px;
+            color: #fff;
+            width: 80%;
+        }
+
+        .home-num {
+            color: #ffbc55;
+            padding: 0 7px;
+        }
+
+        .more {
+            background-color: #220332;
+            border-radius: 20px;
+            padding: 3px 5px;
+            display: flex;
+            line-height: 30px;
+            color: #000;
+            width: 20%;
+            position: relative;
+        }
+
+        .jia {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ffbc55;
+            text-align: center;
+            line-height: 20px;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .laba {
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .laba-img {
+            width: 34px;
+            height: 36px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 20px;
+        }
+        /* 大的 内容 */
+
+        .content {
+            padding: 0 10px;
+        }
+
+        .coment {
+            background-color: #522067;
+            border-radius: 10px;
+        }
+
+        .list1 {
+            display: flex;
+            padding-left: 15px;
+            height: 60px;
+        }
+
+        .list1-left {
+            flex: 4;
+            /*box-shadow: 0px -10px 0px 0px #000;*/
+            /*font-size: 30px;*/
+            line-height: 60px;
+        }
+
+        .list1-left-num {
+            font-size: 60px;
+            color: #fff;
+            font-weight: 200;
+        }
+
+        .list-left-zi {
+            color: #ffbc55;
+            font-size: 30px;
+            letter-spacing: -10px;
+            margin-left: -9px;
+        }
+
+        .list1-right {
+            flex: 10;
+            display: flex;
+            padding-left: 30px;
+        }
+        /*房间密码*/
+
+        .home-password {
+            background-color: #220332;
+            height: 27px;
+            color: #fff;
+            border-radius: 15px;
+            line-height: 27px;
+            padding: 0 10px;
+            font-size: 14px;
+            margin-top: 17px;
+            position: absolute;
+            right: 120px;
+        }
+
+        .home-paw-num {
+            color: #ffbc55;
+            padding-left: 3px;
+        }
+
+        .home-set {
+            background-color: #ffbc55;
+            height: 25px;
+            color: #fff;
+            border-radius: 10px;
+            line-height: 25px;
+            padding: 0 10px;
+            font-size: 14px;
+            margin-top: 18px;
+            margin-left: 10px;
+            position: absolute;
+            right: 30px;
+        }
+        /*底部  ssssssssssssssss*/
+
+        footer {
+            position: absolute;
+            bottom: 0px;
+            left: 10px;
+            right: 10px;
+            border-radius: 10px;
+            background-color: #522067;
+            padding-top: 3rem;
+        }
+
+        .foot-list1 {
+            display: flex;
+        }
+
+        .playgame,
+        .yaoqing,
+        .fenx {
+            background-color: #ffbc35;
+            border-radius: 10px;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            width: 31.33%;
+            text-align: center;
+            font-size: 18px;
+            margin-left: 1%;
+            margin-right: 1%;
+            letter-spacing: -3px;
+            text-shadow: 3px 0px 2px #935900;
+        }
+
+        .fenx {
+            background-color: #45a24c;
+        }
+
+        .foot-list2 {
+            display: flex;
+            margin: 20px 0px;
+        }
+
+        .friend {
+            width: 15%;
+            margin-left: 15px;
+        }
+
+        .friend-yuan {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: #ffbc55;
+        }
+
+        .friend-yuan i {
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .friend-yuan img {
+            width: 25px;
+            height: 25px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%);
+            margin-left: -13px;
+        }
+
+        .yuyin {
+            height: 40px;
+            background-color: #ffbc35;
+            width: 60%;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            letter-spacing: -3px;
+        }
+        /*底部  eeeeeeeeeee*/
+        /*座位*/
+
+        .seat {
+            position: relative;
+            z-index: 999;
+            padding-top: 30%;
+            padding-bottom: 20%;
+        }
+
+        .aui-row {
+            position: relative;
+        }
+
+        .fzhu-img {
+            width: 10px;
+            height: 20px;
+            position: absolute;
+            left: 7%;
+            z-index: 999;
+            top: 2px;
+        }
+
+        .set-yuan {
+            background-color: #c186ca;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /*没有登录时候的默认图标*/
+
+        .set-yuan i {
+            font-size: 45px;
+            text-align: center;
+            line-height: 45px;
+            margin-left: 13%;
+            color: #5d357d;
+        }
+        /*登录后的头像*/
+
+        .set-yuan img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        /*登录之后的字体 name*/
+
+        .seat-name1 {
+            margin-top: 5px;
+            font-size: 13px;
+            letter-spacing: -2px;
+            color: #e4c02c;
+        }
+        /*没有登录时候的默认字体 等待中*/
+
+        .seat-name2 {
+            margin-top: 5px;
+            font-size: 13px;
+            letter-spacing: -2px;
+            color: #cc9b5b;
+        }
+
+        .aui-col-xs-3 {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            color: #e4c02c;
+            text-overflow: ellipsis;
+            text-align: center;
+            margin-top: 5px;
+        }
+        /*角色信心 几个角色  狼人 平民 预言家 女巫 猎人*/
+
+        .role {
+            padding: 0 15px;
+        }
+        .role img {
+          height: 55px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" style="font-family:zhi;">
+        <div class="fangjian-number">
+            <!-- 返回按钮  -->
+            <div class="fanhui">
+                <i class="iconfont icon-ai-out fanhui-icon"></i>
+            </div>
+            <text class="home-num">6554</text>
+            <text class="home-title">爱吃鱼的双鱼座的房间</text>
+        </div>
+        <!-- 更多 -->
+        <div class="more">
+
+            <div class="jia"><i class="iconfont icon-jia1"></i></div>
+        </div>
+    </header>
+    <!-- 喇叭 -->
+    <div class="laba"> <img src="../image/laba.png" alt="" class="laba-img">
+    </div>
+
+
+
+
+
+
+    <!-- 大的content  内容页 -->
+    <div class="content" style="font-family:zhi;">
+        <div class="coment">
+            <!-- 设置房间 几人局 房间密码 -->
+            <div class="list1">
+                <div class="list1-left">
+                    <text class="list1-left-num">9</text>
+                    <text class="list-left-zi">人局</text>
+                </div>
+                <!-- 右边的房间密码  和设置房间 -->
+                <div class="list1-right">
+                    <!--房间密码  -->
+                    <div class="home-password">
+                        房间密码 <text class="home-paw-num">08</text>
+
+                    </div>
+                    <div class="home-set" tapmode onclick="onSethome()">设置房间</div>
+                </div>
+            </div>
+
+            <!-- 角色信心 几个角色  狼人 平民 预言家 女巫 猎人 -->
+            <div class="role">
+                <img src="../image/jiu.png" alt="">
+            </div>
+
+
+
+            <!-- 座位 九个 -->
+            <div class="seat">
+                <div class="aui-row ">
+                    <img src="../image/fzhu.png" class="fzhu-img" alt="">
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <img src="../image/nvtou2.jpg" alt="">
+                        </div>
+                        <text class="seat-name1">爱吃鱼的双鱼座</text>
+                    </div>
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <i class="iconfont icon-zhuazi"></i>
+                        </div>
+                        <text class="seat-name2">等待中...</text>
+                    </div>
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <i class="iconfont icon-zhuazi"></i>
+                        </div>
+                        <text class="seat-name2">等待中...</text>
+                    </div>
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <i class="iconfont icon-zhuazi"></i>
+                        </div>
+                        <text class="seat-name2">等待中...</text>
+                    </div>
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <i class="iconfont icon-zhuazi"></i>
+                        </div>
+                        <text class="seat-name2">等待中...</text>
+                    </div>
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <i class="iconfont icon-zhuazi"></i>
+                        </div>
+                        <text class="seat-name2">等待中...</text>
+                    </div>
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <i class="iconfont icon-zhuazi"></i>
+                        </div>
+                        <text class="seat-name2">等待中...</text>
+                    </div>
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <i class="iconfont icon-zhuazi"></i>
+                        </div>
+                        <text class="seat-name2">等待中...</text>
+                    </div>
+                    <div class="aui-col-xs-3">
+                        <div class="set-yuan">
+                            <i class="iconfont icon-zhuazi"></i>
+                        </div>
+                        <text class="seat-name2">等待中...</text>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <footer id="footer">
+                <!-- 开始游戏 邀请好友 分享 -->
+                <div class="foot-list1">
+                    <!-- 开始游戏 -->
+                    <div class="playgame">
+                        开始游戏
+                    </div>
+                    <!-- 邀请好友 -->
+                    <div class="yaoqing">
+                        邀请好友
+                    </div>
+                    <!-- 分享 -->
+                    <div class="fenx">
+                        分享
+                    </div>
+                </div>
+                <!-- 好友 按住发送语音 -->
+                <div class="foot-list2">
+                    <!-- 好友 -->
+                    <div class="friend">
+                        <div class="friend-yuan">
+                            <!-- <i class="iconfont icon-xiaoxi"></i> -->
+                            <img src="../image/xx.png" alt="">
+                        </div>
+
+                    </div>
+                    <!-- 发送语音 -->
+                    <div class="yuyin">
+                        <i class="iconfont icon-yuyin" style="color:#935900;padding-right:5px;"></i>按住发送语音
+                    </div>
+
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.dom('header'); // 获取 header 标签元素
+        // 沉浸式处理
+        $api.fixStatusBar(header);
+
+    };
+    function onSethome(){
+    api.openFrame({
+        name: 'sethome',
+        url: './sethome.html',
+        rect: {
+            x: 0,
+            y: 0,
+            w: 'auto',
+            h: 'auto'
+        },
+          bgColor: 'rgba(0,0,0,0.4)',
+        pageParam: {
+            name: 'test'
+        }
+    });
+
+
+
+    }
+</script>
+
+</html>

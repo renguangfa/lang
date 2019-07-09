@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../font/zhi.css" />
+    <style>
+        html,
+        body {
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.4);
+            -webkit-tap-highlight-color: transparent;
+            text-align: center;
+        }
+
+        html {
+            height: 100%;
+            /*background-color: transparent;*/
+            font-family: zhi;
+        }
+
+        header {
+            position: relative;
+
+            padding-top: 50px;
+        }
+
+        .header-img {
+            /*height: 55px;*/
+            width: 75%;
+            position: relative;
+            left: 10%;
+            top: 50%;
+            /*transform: translateY(-50%);*/
+        }
+
+        .header-img2 {
+            position: absolute;
+            right: 15px;
+            bottom: 17%;
+            /*top: 50%;*/
+            /*transform: translateY(-50%);*/
+            width: 30px;
+            height: 30px;
+        }
+
+        .aui-tab-item {
+            /*background-color: #ffbc55;*/
+            /*padding-left: 10px;*/
+        }
+
+        .aui-active {
+            border-bottom: none!important;
+        }
+
+        .set-bottom {
+            background-color: #be8836;
+            border-radius: 10px;
+            height: 2.2rem;
+        }
+
+        .aui-active .set-bottom {
+            color: #000;
+            background-color: #ffbc55;
+        }
+
+        .aui-tab {
+            padding: 0 10px;
+            padding-top: 20px;
+        }
+
+        .people-num {
+            font-size: 50px;
+            color: #fff;
+            font-weight: 200;
+        }
+
+        .ju-num {
+            font-size: 20px;
+            letter-spacing: -5px;
+        }
+        .content {
+
+          padding: 15px;
+        }
+        .cont {
+          background-color: #2e0042;
+          border-radius: 10px;
+          padding: 12px 10px;
+        }
+        .house-set {
+
+          background-color: #180024;
+          z-index: 9999;
+          /*padding:5px  15px;*/
+          color: #fff;
+          text-align: center;
+          height: 2rem;
+          line-height: 2rem;
+          margin-bottom: 5px;
+          border-radius: 10px;
+        }
+        .jiu, .shier {
+          padding:  0 20px;
+        }
+        .list1 {
+          background-color: #180024;
+          width: 100%;
+          margin-top: 10px;
+          border-radius: 10px;
+          height: 100%;
+        }
+        .list1-title {
+          color: #ffbc55;
+        }
+        .aui-tab {
+          background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="../image/shezhi.png" class="header-img" alt="">
+        <img src="../image/close.png" class="header-img2" alt="" tapmode onclick="fnCloseFrame()">
+    </header>
+    <!-- 顶部设置房间导航栏 -->
+    <div class="aui-tab" id="tab2">
+        <div class="aui-tab-item aui-active" style="padding-right:5px">
+            <div class="set-bottom">
+                <text class="people-num">12</text>
+                <text class="ju-num">人局</text>
+            </div>
+        </div>
+        <div class="aui-tab-item" style="padding-left:5px">
+            <div class="set-bottom">
+                <text class="people-num">9</text>
+                <text class="ju-num">人局</text>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 选择模式 -->
+
+    <div class="content">
+      <div class="cont">
+        <!-- 房间模式  -->
+        <div class="house-set">
+          房间模式： 好友推送已开启，免密跟房
+        </div>
+
+
+        <!-- 九人局的样式 -->
+        <div class="jiu">
+        <div class="list1">
+          <div class="list1-title">
+            -预女猎守-
+          </div>
+
+        </div>
+
+        </div>
+
+        <!-- 十二人局的样式 -->
+        <div class="shier"></div>
+
+      </div>
+
+
+    </div>
+
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-tab.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.dom('header'); // 获取 header 标签元素
+        // 沉浸式处理
+        $api.fixStatusBar(header);
+        // api.animation({
+        //     name: 'sethome',
+        //     delay: 0,
+        //     duration: 1000,
+        //     curve: 'ease_in',
+        //     repeatCount: 2,
+        //     autoreverse: false,
+        //     alpha: 0,
+        //     translation: {
+        //         x: 0,
+        //         y: 1000,
+        //         z: 0
+        //     },
+        //     scale: {
+        //         x: 1.2,
+        //         y: 1,
+        //         z: 1
+        //     },
+        //     rotation: {
+        //         degree: 45,
+        //         x: 0,
+        //         y: 0,
+        //         z: 1
+        //     }
+        // }, function(ret, err) {
+        //     alert('动画结束');
+        // });
+        var tab = new auiTab({
+            element: document.getElementById("tab2"),
+            index: 2,
+            repeatClick: false
+        }, function(ret) {
+            if (ret.index == 2) {
+                console.log(2222);
+            } else {
+                console.log(111);
+
+            }
+
+        });
+    };
+
+    function fnCloseFrame() {
+        api.closeFrame({
+            name: 'sethome'
+        });
+    }
+</script>
+<script type="text/javascript">
+</script>
+
+</html>

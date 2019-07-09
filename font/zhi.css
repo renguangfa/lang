@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'zhi';
+    src: url("../font/zhi.eot");
+    /* IE9 */
+    src: url("../font/zhi.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+    url("../font/zhi.woff") format("woff"), /* chrome, firefox */
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../font/zhi.ttf") format("truetype"), url("../font/zhi.svg#DINCondRegular") format("svg");
+    /*src:url('../font/x.ttf');*/
+}

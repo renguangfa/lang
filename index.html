@@ -7,6 +7,7 @@
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>Hello APP</title>
     <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./css/aui.css" />
     <style type="text/css">
         html,
         body {
@@ -17,73 +18,102 @@
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-flex-flow: column;
+            background: url(./image/zz.png) no-repeat fixed center;
+            background-size: 100% 100%;
         }
 
-        header {
-            height: 44px;
+        .login {
+            position: absolute;
+            z-index: 9999;
+            bottom: 11.9%;
+            /*height: 70px;*/
             width: 100%;
-            text-align: center;
-            background-color: #81a9c3;
-            color: #fff;
-            line-height: 44px;
-            font-size: 20px;
+            /*background-color: rgba(0, 0, 0, 0.4);*/
         }
 
-        .flex-1 {
-            -webkit-box-flex: 1;
-            -webkit-flex: 1;
+        .dengl {
+            position: relative;
+            left: 50%;
+            background: linear-gradient(to right, #a4d23a, #73ba21);
+            /*background-color: #ffbc55;*/
+            /*padding: 0 60px;*/
+            bottom: 10px;
+            transform: translateX(-50%);
+            width: 160px;
         }
 
-        footer {
+        .name {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 160px;
+            position: relative;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
             height: 30px;
-            width: 100%;
-            background-color: #81a9c3;
-            color: white;
-            line-height: 30px;
+            border-radius: 0.2rem;
             text-align: center;
+            line-height: 30px;
+            font-size: 0.7rem;
+        }
+
+        input {
+            width: 100%;
+            height: 30px!important;
+            text-align: center;
+            color: #fff!important;
+            font-size: 0.7rem!important;
+        }
+
+        input::-webkit-input-placeholder {
+            /* WebKit browsers */
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.7rem;
+            color: #fff!important;
         }
     </style>
 </head>
 
 <body class="wrap">
-    <header>APICloud</header>
-    <section class="flex-1">
+    <!-- 登录按钮 -->
+    <div class="login">
+        <div class="name"><input type="text" placeholder="请输入昵称" onfocus="this.placeholder='' " onblur="this.placeholder='请输入昵称' "></div>
 
-    </section>
-    <footer>Copyright &copy;<span id="year"></span></footer>
+        <div class="aui-btn dengl" onclick="onen()">登录</div>
+
+    </div>
 </body>
-<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
     apiready = function() {
         //输出Log，Log将显示在APICloud Studio控制台
-        console.log("Hello World! Hello APICloud!");
+        // console.log("Hello World! Hello APICloud!");
 
-        var header = $api.dom('header'); // 获取 header 标签元素
-        var footer = $api.dom('footer'); // 获取 footer 标签元素
-
-        // 1.修复开启沉浸式效果带来的顶部Header与手机状态栏重合的问题，最新api.js方法已支持适配iPhoneX；
-        // 2.默认已开启了沉浸式效果 config.xml中 <preference name="statusBarAppearance" value="true"/>
-        // 3.沉浸式效果适配支持iOS7+，Android4.4+以上版本
-        var headerH = $api.fixStatusBar(header);
-        // 最新api.js为了适配iPhoneX增加的方法，修复底部Footer部分与iPhoneX的底部虚拟横条键重叠的问题；
-        var footerH = $api.fixTabBar(footer);
-
-        api.openFrame({
-            name: 'main',
-            url: 'html/main.html',
-            bounces: true,
-            rect: { // 推荐使用Margin布局，用于适配屏幕的动态变化
-                marginTop: headerH, // main页面距离win顶部的高度
-                marginBottom: footerH, // main页面距离win底部的高度
-                w: 'auto' // main页面的宽度 自适应屏幕宽度
-            }
-        });
-
-        // 获取当前年份时间，并加载显示到页面
-        var year = $api.byId('year');
-        year.innerHTML = new Date().getFullYear();
     };
 
+    function onen() {
+
+        api.showProgress({
+            style: 'default',
+            animationType: 'fade',
+            title: '正在登录...',
+            text: '请稍等...',
+            modal: true
+        });
+        setTimeout(function() {
+          api.openWin({
+              name: 'index',
+              url: './html/index.html',
+              pageParam: {
+                  name: 'test'
+              }
+          });
+
+            api.hideProgress();
+
+        });
+    }
 </script>
 
 </html>
