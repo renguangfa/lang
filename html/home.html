@@ -336,7 +336,7 @@
     <header id="header" style="font-family:zhi;">
         <div class="fangjian-number">
             <!-- 返回按钮  -->
-            <div class="fanhui">
+            <div class="fanhui" tapmode onclick="api.closeWin()">
                 <i class="iconfont icon-ai-out fanhui-icon"></i>
             </div>
             <text class="home-num">6554</text>
@@ -363,7 +363,7 @@
             <!-- 设置房间 几人局 房间密码 -->
             <div class="list1">
                 <div class="list1-left">
-                    <text class="list1-left-num">9</text>
+                    <text class="list1-left-num" id="people_num">9</text>
                     <text class="list-left-zi">人局</text>
                 </div>
                 <!-- 右边的房间密码  和设置房间 -->
@@ -455,7 +455,7 @@
                 <!-- 开始游戏 邀请好友 分享 -->
                 <div class="foot-list1">
                     <!-- 开始游戏 -->
-                    <div class="playgame">
+                    <div class="playgame" tapmode onclick="fnOpenPlay()">
                         开始游戏
                     </div>
                     <!-- 邀请好友 -->
@@ -496,6 +496,20 @@
         var header = $api.dom('header'); // 获取 header 标签元素
         // 沉浸式处理
         $api.fixStatusBar(header);
+        api.addEventListener({
+            name: 'myEvent'
+        }, function(ret, err) {
+          // alert(JSON.stringify(ret.value));
+          //   alert(ret.value.key1);
+            var people_num = document.getElementById('people_num');
+            // 12人
+            if(ret.value.key1 ==2) {
+              people_num.innerHTML = "12";
+            } else {
+              people_num.innerHTML = "9";
+
+            }
+        });
 
     };
 
@@ -515,7 +529,15 @@
             }
         });
 
-
+    }
+    function fnOpenPlay(){
+      api.openWin({
+          name: 'six',
+          url: './six.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
 
     }
 </script>

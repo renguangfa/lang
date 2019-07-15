@@ -249,53 +249,33 @@
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/aui-tab.js"></script>
 <script type="text/javascript">
+var a=1;
     apiready = function() {
         var header = $api.dom('header'); // 获取 header 标签元素
         // 沉浸式处理
         $api.fixStatusBar(header);
-        // api.animation({
-        //     name: 'sethome',
-        //     delay: 0,
-        //     duration: 2000,
-        //     curve: 'ease_in',
-        //     repeatCount: 0,
-        //     autoreverse: false,
-        //     alpha: 0,
-        //     translation: {
-        //         x: 0,
-        //         y: 1000,
-        //         z: 0
-        //     },
-        //     scale: {
-        //         x: 1.2,
-        //         y: 1,
-        //         z: 1
-        //     },
-        //     rotation: {
-        //         degree: 45,
-        //         x: 0,
-        //         y: 0,
-        //         z: 1
-        //     }
-        // }, function(ret, err) {
-        //     console.log('动画结束');
-        // });
+
         var tab = new auiTab({
             element: document.getElementById("tab2"),
             index: 2,
             repeatClick: false
         }, function(ret) {
             var shier = document.getElementById("shier");
+
             var jiu = document.getElementById("jiu");
             // console.log(shier)
             if (ret.index == 2) {
                 console.log(9999);
                 shier.style.display = 'none';
                 jiu.style.display = 'block';
+                a=1;
+                // queding();
             } else {
                 shier.style.display = 'block';
                 jiu.style.display = 'none';
+                a=2;
                 console.log(12121212);
+                // queding();
 
             }
 
@@ -303,6 +283,14 @@
     };
 
     function queding() {
+      // alert(a);
+        api.sendEvent({
+            name: 'myEvent',
+            extra: {
+                key1: a,
+
+            }
+        });
         api.closeFrame({
             name: 'sethome'
         });
